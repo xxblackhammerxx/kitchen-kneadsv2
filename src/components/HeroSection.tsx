@@ -1,20 +1,21 @@
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Star } from 'lucide-react'
-const heroImage = '/hero-kitchen.jpg'
+import Image from 'next/image'
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `linear-gradient(rgba(44, 44, 44, 0.4), rgba(44, 44, 44, 0.4)), url(${heroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      />
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/hero-kitchen.jpg"
+          alt="Kitchen background"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-black/40" />
+      </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
