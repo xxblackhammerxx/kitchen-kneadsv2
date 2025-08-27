@@ -1,0 +1,21 @@
+/* Frontend specific styles for Kitchen Kneads */
+
+.frontend-layout {
+  min-height: 100vh;
+  background: hsl(var(--background));
+}
+
+/* Override any conflicting base styles */
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  /* Remove the black background */
+}
+
+/* Ensure proper image handling */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
