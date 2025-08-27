@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Star } from 'lucide-react'
 import Image from 'next/image'
+import heroKitchenImage from '/public/hero-kitchen.jpg'
 
 const HeroSection = () => {
   return (
@@ -8,12 +9,11 @@ const HeroSection = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/hero-kitchen.jpg"
+          src={heroKitchenImage}
           alt="Kitchen background"
           fill
           className="object-cover"
           priority
-          unoptimized
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-black/40" />
       </div>
