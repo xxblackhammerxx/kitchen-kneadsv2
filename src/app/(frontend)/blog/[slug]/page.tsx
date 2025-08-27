@@ -11,19 +11,20 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+  const resolvedParams = await params
   const payload = await getPayloadClient()
 
   const { docs } = await payload.find({
     collection: 'posts',
     where: {
       slug: {
-        equals: params.slug,
+        equals: resolvedParams.slug,
       },
       status: {
         equals: 'published',
@@ -73,13 +74,14 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const resolvedParams = await params
   const payload = await getPayloadClient()
 
   const { docs } = await payload.find({
     collection: 'posts',
     where: {
       slug: {
-        equals: params.slug,
+        equals: resolvedParams.slug,
       },
       status: {
         equals: 'published',

@@ -9,19 +9,20 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 interface CategoryPageProps {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
+  const resolvedParams = await params
   const payload = await getPayloadClient()
 
   const { docs: categories } = await payload.find({
     collection: 'categories',
     where: {
       slug: {
-        equals: params.slug,
+        equals: resolvedParams.slug,
       },
     },
     limit: 1,
@@ -42,6 +43,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
+  const resolvedParams = await params
   const payload = await getPayloadClient()
 
   // Find the category
@@ -49,7 +51,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     collection: 'categories',
     where: {
       slug: {
-        equals: params.slug,
+        equals: resolvedParams.slug,
       },
     },
     limit: 1,

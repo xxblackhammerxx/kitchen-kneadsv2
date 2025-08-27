@@ -7,8 +7,10 @@ import sharp from 'sharp'
 import { fileURLToPath } from 'url'
 
 import { Categories } from './collections/Categories'
+import { Leads } from './collections/Leads'
 import { Media } from './collections/Media'
 import { Posts } from './collections/Posts'
+import { States } from './collections/States'
 import { Users } from './collections/Users'
 
 const filename = fileURLToPath(import.meta.url)
@@ -26,6 +28,8 @@ export default buildConfig({
     Media,
     Posts,
     Categories,
+    Leads,
+    States,
     {
       slug: 'products',
       admin: {

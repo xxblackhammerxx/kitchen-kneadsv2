@@ -91,7 +91,8 @@ export function BlogListing({ initialPosts, categories }: BlogListingProps) {
               {searchTerm && (
                 <span>
                   {' '}
-                  matching "<span className="font-medium text-primary">{searchTerm}</span>"
+                  matching &ldquo;<span className="font-medium text-primary">{searchTerm}</span>
+                  &rdquo;
                 </span>
               )}
             </p>
