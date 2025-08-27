@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Star } from 'lucide-react'
 import Image from 'next/image'
-import heroKitchenImage from '/public/hero-kitchen.jpg'
+import heroKitchenImage from '../../public/hero-kitchen.jpg'
 
 const HeroSection = () => {
   return (
